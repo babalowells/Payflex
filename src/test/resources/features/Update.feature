@@ -11,6 +11,6 @@ Feature: Payflex Login
 
     Examples:
       | city         | postal |
-      | Cape Town    | 8001   |
+      | Cape Town    | 8003   |
       | Johannesburg | 2000   |
       | Durban       | 4001   |
