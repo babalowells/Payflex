@@ -1,3 +1,4 @@
+<<<<<<< main
 # Payflex Customer Portal - Automated Login Test
 
 This project automates the login process for the [Payflex UAT Customer Portal](https://customer.uat.payflex.co.za/) using Selenium, Java, and Cucumber. It performs login via API and also the UI, injects the token into the browser, and then navigates directly to the UI.
@@ -14,4 +15,3 @@ This project automates the login process for the [Payflex UAT Customer Portal](h
 - External **Test Data** in `testdata.properties`
 
 ---
-
