@@ -20,6 +20,10 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.util.HashMap;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 public class UpdateSteps {
 
     WebDriver driver;
@@ -30,7 +34,8 @@ public class UpdateSteps {
         ChromeOptions options = new ChromeOptions();
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.get("https://customer.uat.payflex.co.za/"); // replace with the actual login URL
+        driver.get("https://customer.uat.payflex.co.za/");
+        Hooks.test.pass("Navigated to login page");
     }
 
     @When("I enter valid credentials")
@@ -40,7 +45,8 @@ public class UpdateSteps {
 
         driver.findElement(By.id("email")).sendKeys(username);
         driver.findElement(By.id("password")).sendKeys(password);
-        driver.findElement(By.xpath("/html/body/app-root/div/div[1]/div/app-login-customer/div/div/div/div[2]/button[1]")).click(); // update to your real button ID
+        driver.findElement(By.xpath("/html/body/app-root/div/div[1]/div/app-login-customer/div/div/div/div[2]/button[1]")).click();
+        Hooks.test.pass("Performed login with email: " + username);
         driver.wait(6000);
     }
 
@@ -73,11 +79,20 @@ public class UpdateSteps {
         driver.navigate().to("https://customer.uat.payflex.co.za/dashboard");
     }
 
+    @Then("I should see my email displayed correctly")
+    public void verifyUserEmailIsCorrect() {
+        WebElement emailElement = driver.findElement(By.cssSelector("email-icon"));
+        String displayedEmail = emailElement.getText();
+        assertEquals ("pftestfred+reg050@gmail.com", displayedEmail);
+        Hooks.test.pass("User email displayed: " + displayedEmail);
+    }
+
     @Then("I should be logged in and see my dashboard")
     public void i_should_be_logged_in_and_see_my_dashboard() throws InterruptedException {
 
         WebElement dashboard = driver.findElement(By.xpath("//*[contains(text(),'Dashboard')]"));
         assert dashboard.isDisplayed() : "Dashboard not visible!";
+        assert (driver.getCurrentUrl().contains("dashboard"));
     }
 
     @And("I select edit for profile details")

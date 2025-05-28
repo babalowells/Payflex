@@ -15,3 +15,18 @@ This project automates the login process for the [Payflex UAT Customer Portal](h
 - External **Test Data** in `testdata.properties`
 
 ---
+
+## 🚧 Known Issues / Blockers
+
+### 🧩 Dashboard Icon Element Not Locatable
+
+During test execution, an issue was encountered when trying to locate the dashboard icon after login.
+
+- **Problem:** The dashboard icon element does not load immediately or is rendered via JavaScript asynchronously.
+- **Symptoms:**
+    - `NoSuchElementException` or timeout when trying to locate the dashboard link/icon.
+- **Possible Causes:**
+    - Element loads dynamically after token validation
+    - Shadow DOM or iframes involved (needs inspection)
+
+-----

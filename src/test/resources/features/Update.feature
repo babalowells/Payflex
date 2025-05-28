@@ -5,6 +5,7 @@ Feature: Payflex Login
     When I enter valid credentials
     #When I login via the API
     Then I should be logged in and see my dashboard
+    Then I should see my email displayed correctly
     And I select edit for profile details
     Then I update my address city "<city>" and postal "<postal>"
     Then I validate the success message
