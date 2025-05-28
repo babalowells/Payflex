@@ -5,6 +5,28 @@ This project automates the login process for the [Payflex UAT Customer Portal](h
 
 ---
 
+## 🚀 Run Instructions
+
+### 🖥️ Prerequisites
+
+- Java JDK 11 or higher
+- Maven 3.6+
+- Chrome browser
+- ChromeDriver (compatible with your Chrome version)
+- Git (optional, for cloning)
+
+---
+
+### 📦 Setup
+
+1. **Clone the Repository**
+
+```bash
+git clone https://github.com/babalowells/Payflex.git
+
+
+---
+
 ## ✅ Features
 
 - Login using **Auth0 API** to fetch a bearer token
